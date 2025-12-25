@@ -1,0 +1,22 @@
+{
+  "name": "spur-chat",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "build": "cd frontend && npm run build",
+    "vercel-build": "cd frontend && npm install && npm run build"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.0.0",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.14.1",
+    "@google/generative-ai": "^0.2.1",
+    "openai": "^4.24.1",
+    "uuid": "^9.0.1"
+  }
+}
+

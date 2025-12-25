@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  
+  /* Fresh dark theme with teal accents */
+  background: #00050c;
+  background-image: 
+    radial-gradient(at 30% 20%, hsla(174, 70%, 40%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 80% 10%, hsla(199, 80%, 35%, 0.18) 0px, transparent 50%),
+    radial-gradient(at 10% 60%, hsla(160, 60%, 35%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 90% 50%, hsla(185, 70%, 30%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 20% 90%, hsla(170, 60%, 40%, 0.18) 0px, transparent 50%),
+    radial-gradient(at 70% 80%, hsla(195, 70%, 35%, 0.12) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Subtle animated glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(20, 184, 166, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 440px;
+  height: 90vh;
+  max-height: 780px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 0;
+  }
+
+  #root {
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+  }
+}
