@@ -168,34 +168,30 @@ The system automatically tries providers in order:
    ↓ (on failure)
 4. Fallback responses (keyword-based)
 ```
+### LLM Integration Notes
+
+#### Prompting Strategy
+
+#### System prompt:
+
+You are a helpful customer support agent for an e-commerce store.
+Answer clearly, concisely, and politely.
+
+#### Context included:
+
+Recent conversation history
+Store FAQ / policies (shipping, returns, support hours)
+
+#### Guardrails:
+
+Max message length enforced on client & server
+Limited conversation history to control token usage
+Graceful fallback on API errors or timeouts
 
 - **Permanent failures** (invalid API key) are remembered to avoid retries
 - **Temporary failures** (rate limits) will retry on next request
 
-## Vercel Deployment
-
-### One-Click Deploy
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/spur-chat)
-
-### Manual Deploy
-
-1. **Install Vercel CLI:**
-   ```bash
-   npm i -g vercel
-   ```
-
-2. **Deploy:**
-   ```bash
-   vercel
-   ```
-
-3. **Add Environment Variables** in Vercel Dashboard:
-   - `OPENAI_API_KEY` - Your OpenAI key
-   - `GEMINI_API_KEY` - Your Gemini key (optional)
-   - `ANTHROPIC_API_KEY` - Your Anthropic key (optional)
-
-### Project Structure for Vercel
+## Project Structure for Vercel
 
 ```
 spur/
@@ -216,18 +212,15 @@ spur/
 └── package.json
 ```
 
-### Note on Data Persistence
+### Trade-offs
 
-The Vercel deployment uses in-memory storage for simplicity. This means:
-- Conversations persist within a function instance
-- Data may reset on cold starts
+-SQLite used locally instead of managed Postgres
+-Prompt-based knowledge instead of RAG/vector search
+-No authentication (intentionally kept simple)
 
-For production with persistent data, consider:
-- **Vercel KV** (Redis)
-- **Vercel Postgres**
-- **Upstash Redis**
-- **PlanetScale** (MySQL)
+#### If I had more time…
 
-## License
-
-MIT
+-Add Postgres (Neon/Supabase) for production
+-Introduce RAG with embeddings for richer knowledge
+-Add streaming responses (token-by-token)
+-Improve analytics (response time, resolution rate)
