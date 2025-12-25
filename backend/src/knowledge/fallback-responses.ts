@@ -12,40 +12,101 @@ interface ResponsePattern {
 
 const responsePatterns: ResponsePattern[] = [
   {
+    keywords: ['order','orders', 'order id', 'order number'],
+    response: `I can help with your order. Please share your order number so I can check the status.`,
+  },
+  {
+    keywords: ['order status', 'status of my order'],
+    response: `Sure! Please provide your order number and I’ll check the current status for you.`,
+  },
+  {
+    keywords: ['cancel', 'cancellation'],
+    response: `You can cancel an order before it ships. Share your order number and I’ll help check if cancellation is possible.`,
+  },
+  {
+    keywords: ['modify', 'change order', 'update order'],
+    response: `If your order hasn’t shipped yet, changes may be possible. Please share your order number.`,
+  },
+  // ---- Shipping & Address ----
+  {
+    keywords: ['change address', 'update address','address'],
+    response: `Address updates are possible before shipment. Please share your order number and the new address.`,
+  },
+  {
+    keywords: ['late', 'delayed', 'delay'],
+    response: `Sorry about the delay! Please share your order number and I’ll look into it right away.`,
+  },
+  {
+    keywords: ['missed delivery', 'not delivered'],
+    response: `That’s frustrating — let me help. Please share your order number so I can check delivery details.`,
+  },
+  {
     keywords: ['return', 'refund'],
-    response: `Hi! I'm ${AGENT_NAME} from ${STORE_NAME}. Our return policy allows you to return any item within 30 days of delivery for a full refund. Items must be unused and in original packaging. Would you like me to help you start a return?`,
+    response: `Our return policy allows 30-day returns for a full refund. Items must be unused and in original packaging. Need help starting a return?`,
+  },
+  {
+    keywords: ['return status', 'refund status'],
+    response: `Refunds usually process within 5–7 business days after approval. Share your order number and I’ll check the status.`,
   },
   {
     keywords: ['ship', 'delivery', 'international'],
-    response: `Great question! We offer free shipping on orders over $50 within the USA (5-7 business days). We also ship internationally to Canada, UK, and EU countries - those orders typically take 10-15 business days. Is there anything specific about shipping I can help with?`,
+    response: `Free shipping on orders over $50 (USA, 5-7 days). We ship to Canada, UK, and EU (10-15 days). Questions about a specific order?`,
   },
   {
     keywords: ['hours', 'support', 'contact'],
-    response: `Our support hours are: Live Chat Monday-Friday 9 AM - 8 PM EST, Saturday-Sunday 10 AM - 6 PM EST. You can also email us at support@quickmart.com or call 1-800-QUICK-MT. How can I help you today?`,
+    response: `Live Chat: Mon-Fri 9AM-8PM, Sat-Sun 10AM-6PM EST. Email: support@fastlane.com. Phone: 1-800-FAST-LANE.`,
   },
   {
     keywords: ['payment', 'pay', 'card'],
-    response: `We accept Visa, Mastercard, American Express, Discover, PayPal, Apple Pay, and Google Pay. Is there a specific payment question I can help with?`,
+    response: `We accept Visa, Mastercard, Amex, Discover, PayPal, Apple Pay, and Google Pay.`,
   },
   {
-    keywords: ['damaged', 'broken', 'wrong item'],
-    response: `I'm sorry to hear about the issue with your order! For damaged or wrong items, please contact us within 48 hours with photos if possible. We'll arrange a replacement or refund right away. Can you tell me more about what happened?`,
+    keywords: ['damaged', 'broken', 'wrong'],
+    response: `Sorry about that! Contact us within 48 hours with photos and we'll arrange a replacement or refund.`,
   },
   {
-    keywords: ['track', 'where', 'order status'],
-    response: `You can track your order using the tracking link in your shipping confirmation email. If you can't find it, please provide your order number and I'll help you locate it!`,
-  },
-  {
-    keywords: ['cancel'],
-    response: `To cancel an order, please contact us as soon as possible. If the order hasn't shipped yet, we can cancel it for a full refund. If it has shipped, you can refuse delivery or return it once received. What's your order number?`,
+    keywords: ['track', 'where', 'status'],
+    response: `Check your shipping confirmation email for tracking. Can't find it? Share your order number and I'll help!`,
   },
   {
     keywords: ['hello', 'hi', 'hey'],
-    response: `Hi there! 👋 I'm ${AGENT_NAME}, your ${STORE_NAME} support assistant. How can I help you today? Feel free to ask about shipping, returns, orders, or anything else!`,
+    response: `Hi! 👋 I'm ${AGENT_NAME} from ${STORE_NAME}. How can I help you today?`,
   },
   {
     keywords: ['thank'],
-    response: `You're welcome! 😊 Is there anything else I can help you with today?`,
+    response: `You're welcome! 😊 Anything else I can help with?`,
+  },
+   // ---- Payments & Billing ----
+  {
+    keywords: ['charged', 'double charged', 'payment issue'],
+    response: `Sorry about the billing issue. Please share your order number or payment reference so I can assist.`,
+  },
+  {
+    keywords: ['invoice', 'receipt', 'bill'],
+    response: `I can help with invoices and receipts. Please share your order number.`,
+  },
+  {
+    keywords: ['promo', 'coupon', 'discount', 'offer'],
+    response: `Promo codes can be applied at checkout. If a code didn’t work, share the code and your order details.`,
+  },
+  // ---- Warranty & Product Issues ----
+  {
+    keywords: ['warranty', 'guarantee'],
+    response: `Most products come with a manufacturer warranty. Share the product name or order number for details.`,
+  },
+  {
+    keywords: ['defective', 'not working', 'faulty'],
+    response: `Sorry about that! Please share photos and your order number so we can arrange a replacement or refund.`,
+  },
+
+  // ---- Account & Support ----
+  {
+    keywords: ['account', 'login', 'sign in'],
+    response: `If you’re having account issues, please tell me what’s happening and I’ll guide you.`,
+  },
+  {
+    keywords: ['talk to agent', 'human', 'representative'],
+    response: `I can connect you with a support agent during our live chat hours. Would you like me to do that?`,
   },
 ];
 
